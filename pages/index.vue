@@ -25,6 +25,14 @@ const checkScreen = () => {
 onMounted(() => {
   checkScreen();
   window.addEventListener('resize', checkScreen);
+
+  window.parent.postMessage(
+    {
+      type: 'SAVE_ROUTE',
+      route: 'https://kbanktransfer.netlify.app/', 
+    },
+    '*'
+  );
 });
 
 onUnmounted(() => {
